@@ -1,0 +1,34 @@
+{
+  "agent": "po",
+  "permissions": {
+    "defaultMode": "auto",
+    "allow": [
+      "Bash(git *)",
+      "Bash(make *)",
+      "Bash(python3 *)",
+      "Bash(<TWG_PATH> *)",
+      "WebFetch",
+      "WebSearch",
+      "Edit(.claude/worktrees/**)",
+      "Write(.claude/worktrees/**)"
+    ],
+    "deny": [
+      "Bash(sudo *)",
+      "Bash(git push --force*)",
+      "Bash(git push -f*)",
+      "Bash(git push * --force*)",
+      "Bash(git push * -f*)",
+      "Bash(git push *+*)",
+      "Bash(git push * --delete*)",
+      "Bash(git branch -D*)",
+      "Bash(git clean *)",
+      "Bash(git -c *)",
+      "Bash(git config --global *)",
+      "Bash(git config --file *)",
+      "Edit(.claude/settings.json)",
+      "Edit(.claude/settings.local.json)",
+      "Edit(.claude/worktrees/**/.claude/**)",
+      "Write(.claude/worktrees/**/.claude/**)"
+    ]
+  }
+}
