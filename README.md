@@ -111,7 +111,11 @@ The team runs unattended, so `.claude/settings.json` allows whole programs
 (`git`, `make`, `python3`, your Jira CLI). An agent that may run `python3`
 or `make` can run any code it writes. The deny list (force-push, `sudo`,
 `git config`, editing the settings files) is a guard rail against mistakes,
-not a security boundary: prefix rules cannot stop a determined interpreter.
+not a security boundary: prefix rules cannot stop a determined interpreter,
+and git's global options (`git -C dir config ...`) slip past prefix denies.
+The PO is meant to edit `AGENTS.md` and the skill files (retro actions), so
+those stay writable; enforce anything stricter from managed settings or a
+`PreToolUse` hook, not from this agent-visible file.
 
 - Run the team only on repositories and machines where that is acceptable,
   ideally inside Claude Code's sandbox, a container or a VM without
