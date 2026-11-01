@@ -105,6 +105,24 @@ docs/
 - A **retro** every 15 finished tasks. No new task starts while one is due.
 - Never fabricate expected results: derive them from the source.
 
+## Security
+
+The team runs unattended, so `.claude/settings.json` allows whole programs
+(`git`, `make`, `python3`, your Jira CLI). An agent that may run `python3`
+or `make` can run any code it writes. The deny list (force-push, `sudo`,
+`git config`, editing the settings files) is a guard rail against mistakes,
+not a security boundary: prefix rules cannot stop a determined interpreter.
+
+- Run the team only on repositories and machines where that is acceptable,
+  ideally inside Claude Code's sandbox, a container or a VM without
+  personal credentials.
+- Narrow the allow list where you can: specific make targets
+  (`Bash(make test)`), specific scripts, specific git subcommands, and
+  `WebFetch(domain:...)` for the sites you need.
+- Treat downloaded samples as untrusted: agents read them, never run their
+  code. Run Python that reads them with `python3 -I`.
+- Keep the agent's Git and Jira credentials scoped to this one project.
+
 ## License
 
 MIT. See [LICENSE](LICENSE).

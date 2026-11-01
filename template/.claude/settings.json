@@ -23,10 +23,11 @@
       "Bash(git branch -D*)",
       "Bash(git clean *)",
       "Bash(git -c *)",
-      "Bash(git config --global *)",
-      "Bash(git config --file *)",
+      "Bash(git config *)",
       "Edit(.claude/settings.json)",
       "Edit(.claude/settings.local.json)",
+      "Write(.claude/settings.json)",
+      "Write(.claude/settings.local.json)",
       "Edit(.claude/worktrees/**/.claude/**)",
       "Write(.claude/worktrees/**/.claude/**)"
     ]
